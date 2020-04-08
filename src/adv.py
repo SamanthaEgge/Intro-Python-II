@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -38,6 +39,10 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+gender = input("Are you a boy or a girl?")
+name = input("Now what did you say your name was?")
+
+chris = Player(name, gender, room['outside'])
 
 # Write a loop that:
 #
