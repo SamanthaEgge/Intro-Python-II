@@ -39,10 +39,11 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-gender = input("Are you a boy or a girl?")
-name = input("Now what did you say your name was?")
+gender = input("Are you a boy or a girl? \n")
+name = input("Now what did you say your name was? \n")
 
 chris = Player(name, gender, room['outside'])
+print(chris)
 
 # Write a loop that:
 #
@@ -54,3 +55,29 @@ chris = Player(name, gender, room['outside'])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+#### REPL Loop
+# Read the user input (your Python commands).
+# Evaluate your code (to work out what you mean).
+# Print any results (so you can see the computer’s response).
+# Loop back to step 1 (to continue the conversation
+
+while True:
+  print(chris.current_room.name)
+  print("")
+  print(chris.current_room.description)
+  print("")
+  print("Commands: N, E, S, W, 'q' quit, 'h' help")
+  user_input = input('enter command here: ')
+  user_input = user_input.lower()
+
+  if user_input == 'q':
+    print('Exiting the simulation')
+    exit()
+  elif user_input == 'n':
+    chris.current_room = chris.current_room.n_to
+  # elif user_input == 'e':
+  # elif user_input == 's':
+  # elif user_input == 'w':
+  else:
+    print("This isn't the time to use that!!!")

@@ -6,6 +6,9 @@ class Player:
     self.gender = gender
     self.current_room = initial_room
   
+  def __str__(self):
+    return 'Player "{self.name}" created!'.format(self=self)
+  
   # def move_rooms(self):
 
 
