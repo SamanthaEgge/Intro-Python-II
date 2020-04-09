@@ -44,6 +44,8 @@ name = input("Now what did you say your name was? \n")
 
 chris = Player(name, gender, room['outside'])
 print(chris)
+print("Commands: N, E, S, W, 'q' quit, 'h' help")
+print('~~~~~~~~~ \n \n \n')
 
 # Write a loop that:
 #
@@ -64,20 +66,35 @@ print(chris)
 
 while True:
   print(chris.current_room.name)
-  print("")
   print(chris.current_room.description)
   print("")
-  print("Commands: N, E, S, W, 'q' quit, 'h' help")
+  print("~~~")
   user_input = input('enter command here: ')
+  print("")
   user_input = user_input.lower()
 
   if user_input == 'q':
     print('Exiting the simulation')
     exit()
   elif user_input == 'n':
-    chris.current_room = chris.current_room.n_to
-  # elif user_input == 'e':
-  # elif user_input == 's':
-  # elif user_input == 'w':
+    if chris.current_room.n_to:
+      chris.current_room = chris.current_room.n_to
+    else:
+      print('This path does not exist')
+  elif user_input == 'e':
+    if chris.current_room.e_to:
+      chris.current_room = chris.current_room.e_to
+    else:
+      print('This path does not exist')
+  elif user_input == 's':
+    if chris.current_room.s_to:
+      chris.current_room = chris.current_room.s_to
+    else:
+      print('This path does not exist')
+  elif user_input == 'w':
+    if chris.current_room.w_to:
+      chris.current_room = chris.current_room.w_to
+    else:
+      print('This path does not exist')
   else:
     print("This isn't the time to use that!!!")
