@@ -5,11 +5,16 @@ class Player:
     self.name = name
     self.gender = gender
     self.current_room = initial_room
-  
+
+  def move_player(self, direction):
+    room_check = self.current_room.get_next_room(direction)
+    if room_check:
+      self.current_room = self.current_room.room_check
+    else:
+      print('This path does not exist')
+
   def __str__(self):
     return 'Player "{self.name}" created!'.format(self=self)
-  
-  # def move_rooms(self):
 
 
 # class Character:

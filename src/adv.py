@@ -24,9 +24,6 @@ earlier adventurers. The only exit is to the south."""),
 
 
 # Link rooms together
-a = 100
-b = 100
-
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
@@ -46,9 +43,8 @@ name = input("Now what did you say your name was? \n")
 
 chris = Player(name, gender, room['outside'])
 print(chris)
-print("Commands: N, E, S, W, 'q' quit, 'h' help")
+print("Commands: 'w' north, 'd' east, 's' south, 'a' west, 'q' quit, 'h' help")
 print('~~~~~~~~~ \n \n \n')
-print(dir(chris.current_room))
 
 # Write a loop that:
 #
@@ -73,15 +69,26 @@ while True:
   print("")
   print("~~~")
   user_input = input('What do you do? ')
-  print("")
   user_input = user_input.lower()
+  """ Modifying wasd input to directional. Need a cleaner way to do this """
+  if user_input == 'w':
+    user_input = 'n'
+  elif user_input == 'd':
+    user_input = 'e'
+  elif user_input == 'a':
+    user_input = 'w'
+  else:
+    pass
+  print("")
+
+
+  # Need a way to transfer WASD commands into NESW
 
   if user_input == 'q':
     print('Exiting the simulation')
     exit()
   elif user_input == 'n':
     if chris.current_room.n_to:
-      print(chris.current_room.n_to)
       chris.current_room = chris.current_room.n_to
     else:
       print('This path does not exist')

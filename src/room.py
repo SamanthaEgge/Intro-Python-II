@@ -10,11 +10,16 @@ class Room:
     self.s_to = None
     self.w_to = None
 
+    """ Setting possible items to room. """
     if items is None:
       self.items = []
     else:
       self.items = items
 
-  def __str__(self):
-    return ''
+  """ Grabbing direction from Player move_player to determine if room exists"""
+  def get_next_room(self, direction):
+    if hasattr(self, f"{direction}_to"):
+      return getattr(self, f"{direction}_to")
+    return None
+
 
