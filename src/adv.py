@@ -70,6 +70,7 @@ while True:
   print("~~~")
   user_input = input('What do you do? ')
   user_input = user_input.lower()
+
   """ Modifying wasd input to directional. Need a cleaner way to do this """
   if user_input == 'w':
     user_input = 'n'
@@ -79,6 +80,7 @@ while True:
     user_input = 'w'
   else:
     pass
+  
   print("")
 
 
@@ -87,25 +89,37 @@ while True:
   if user_input == 'q':
     print('Exiting the simulation')
     exit()
-  elif user_input == 'n':
-    if chris.current_room.n_to:
-      chris.current_room = chris.current_room.n_to
-    else:
-      print('This path does not exist')
-  elif user_input == 'e':
-    if chris.current_room.e_to:
-      chris.current_room = chris.current_room.e_to
-    else:
-      print('This path does not exist')
-  elif user_input == 's':
-    if chris.current_room.s_to:
-      chris.current_room = chris.current_room.s_to
-    else:
-      print('This path does not exist')
-  elif user_input == 'w':
-    if chris.current_room.w_to:
-      chris.current_room = chris.current_room.w_to
-    else:
-      print('This path does not exist')
+  elif user_input == 'n' or 'e' or 's' or 'w':
+    print(user_input)
+    chris.move_player(user_input)
   else:
     print("This isn't the time to use that!!!")
+
+
+
+
+
+
+
+
+ """ Previous direction code """
+  # elif user_input == 'n':
+  #   if chris.current_room.n_to:
+  #     chris.current_room = chris.current_room.n_to
+  #   else:
+  #     print('This path does not exist')
+  # elif user_input == 'e':
+  #   if chris.current_room.e_to:
+  #     chris.current_room = chris.current_room.e_to
+  #   else:
+  #     print('This path does not exist')
+  # elif user_input == 's':
+  #   if chris.current_room.s_to:
+  #     chris.current_room = chris.current_room.s_to
+  #   else:
+  #     print('This path does not exist')
+  # elif user_input == 'w':
+  #   if chris.current_room.w_to:
+  #     chris.current_room = chris.current_room.w_to
+  #   else:
+  #     print('This path does not exist')

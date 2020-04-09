@@ -9,7 +9,7 @@ class Player:
   def move_player(self, direction):
     room_check = self.current_room.get_next_room(direction)
     if room_check:
-      self.current_room = self.current_room.room_check
+      self.current_room = room_check
     else:
       print('This path does not exist')
 

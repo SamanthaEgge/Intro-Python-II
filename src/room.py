@@ -19,6 +19,8 @@ class Room:
   """ Grabbing direction from Player move_player to determine if room exists"""
   def get_next_room(self, direction):
     if hasattr(self, f"{direction}_to"):
+      print('we made this?')
+      print (self.n_to)
       return getattr(self, f"{direction}_to")
     return None
 
