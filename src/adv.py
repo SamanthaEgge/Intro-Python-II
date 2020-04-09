@@ -24,6 +24,8 @@ earlier adventurers. The only exit is to the south."""),
 
 
 # Link rooms together
+a = 100
+b = 100
 
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -46,6 +48,7 @@ chris = Player(name, gender, room['outside'])
 print(chris)
 print("Commands: N, E, S, W, 'q' quit, 'h' help")
 print('~~~~~~~~~ \n \n \n')
+print(dir(chris.current_room))
 
 # Write a loop that:
 #
@@ -69,7 +72,7 @@ while True:
   print(chris.current_room.description)
   print("")
   print("~~~")
-  user_input = input('enter command here: ')
+  user_input = input('What do you do? ')
   print("")
   user_input = user_input.lower()
 
@@ -78,6 +81,7 @@ while True:
     exit()
   elif user_input == 'n':
     if chris.current_room.n_to:
+      print(chris.current_room.n_to)
       chris.current_room = chris.current_room.n_to
     else:
       print('This path does not exist')
